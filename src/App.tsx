@@ -47,16 +47,6 @@ function App() {
 
         Your mission, should you
         choose to accept:`
-      },
-      {
-        text: 
-        `Report back on zulip #sms
-        and print the next mission.
-
-        The chain must continue.
-
-        ================================
-        sms.recurse.com`
       }
     ];
 
@@ -84,6 +74,19 @@ function App() {
         currentId = id;
       }
     }
+
+    textblocks.push(
+      {
+        text: 
+        `Report back on zulip #sms
+        and print the next mission.
+
+        The chain must continue.
+
+        ================================
+        sms.recurse.com`
+      }
+    )
 
     // last text call cuts the paper
     currentOptions = { ...currentOptions, coda: "cut" };
