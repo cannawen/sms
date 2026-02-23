@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from "react";
 import cn from "classnames";
 import { TextEditorProps } from ".";
-import { TextEditorOptions, TextStyles } from "../TextEditorOptions";
+import { TextStyles } from "../TextEditorOptions";
 import { updateStyles } from "./utils";
 
 const initialStyles: TextStyles = {
@@ -19,7 +19,8 @@ function TextEditor({ id }: TextEditorProps) {
     React.useState<TextStyles>(initialStyles);
   const [containerStyles, setContainerStyles] = React.useState<TextStyles>({});
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const defaultText = "hello printer";
+  const defaultText = "<insert your new mission here>";
+
 
   useLayoutEffect(() => {
     if (textAreaRef.current) {
@@ -71,7 +72,6 @@ function TextEditor({ id }: TextEditorProps) {
             ></textarea>
           </div>
         </div>
-        <TextEditorOptions id={id} />
       </div>
     </section>
   );

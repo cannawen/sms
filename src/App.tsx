@@ -25,7 +25,7 @@ function getCookieValue(cookie: string): string {
 }
 
 function App() {
-  let endpoint = "https://receipt.recurse.com/text";
+  let endpoint = "https://sms.recurse.com/text";
 
   if (import.meta.env.DEV) {
     document.cookie = "receipt_csrf=dev_token; path=/";
@@ -38,7 +38,27 @@ function App() {
     var formData = new FormData(e.target);
     let currentId = "";
     let currentOptions = {};
-    const textblocks: TextReceiptData[] = [];
+    const textblocks: TextReceiptData[] = [
+      { 
+        text: 
+        `================================
+        SECRET MISSION SOCIETY
+        ================================
+
+        Your mission, should you
+        choose to accept:`
+      },
+      {
+        text: 
+        `Report back on zulip #sms
+        and print the next mission.
+
+        The chain must continue.
+
+        ================================
+        sms.recurse.com`
+      }
+    ];
 
     // group form data by id
     for (const pair of formData.entries()) {
@@ -99,9 +119,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-24px)]">
       <div className="grow">
-        <h1 className="text-center">Receipt Text</h1>
+        <h1 className="text-center">Secret Mission Society</h1>
         <p className="text-center">
-          A simple text editor for the RC receipt printer.
+          The chain must continue.
         </p>
         {token ? (
           <>
@@ -111,13 +131,6 @@ function App() {
                 className="h-16 w-16 mx-4"
                 alt="Octopus emoji expressing excitement"
               />
-              <div className="max-w-60">
-                <p>
-                  <span className="visually-hidden">Warning: </span>
-                  <span aria-hidden>⚠️</span> The editor preview will be
-                  slightly different than the actual printed text!
-                </p>
-              </div>
             </div>
             <Form onFormSubmit={onSubmit} />
           </>
@@ -125,7 +138,7 @@ function App() {
           <div className="text-center mt-10">
             <p>you are not authenticated.</p>
             <p>
-              <Anchor href="https://receipt.recurse.com/login?redirect_uri=https://receipt-text.recurse.com">
+              <Anchor href="https://receipt.recurse.com/login?redirect_uri=https://sms.recurse.com">
                 log in to the receipt printer API
               </Anchor>
             </p>
@@ -133,7 +146,7 @@ function App() {
         )}
       </div>
       <footer className="flex justify-between mt-24 ">
-        <Anchor href="https://github.com/juliatufts/receipt-text">
+        <Anchor href="https://github.com/cannawen/sms">
           View on GitHub
         </Anchor>
         <Anchor href="https://receipt.recurse.com/">Receipt Printer API</Anchor>
