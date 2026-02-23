@@ -160,9 +160,9 @@ function App() {
       </div>
       <footer className="flex justify-between mt-24 ">
         <Anchor href="https://github.com/cannawen/sms">
-          View on GitHub
+          about
         </Anchor>
-        <Anchor href="https://receipt.recurse.com/">Receipt Printer API</Anchor>
+        <Anchor href="https://receipt.recurse.com/">printer api</Anchor>
       </footer>
     </div>
   );
