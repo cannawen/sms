@@ -122,12 +122,23 @@ function App() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-24px)]">
       <div className="grow">
+        <br />
+        <br />
+        <br />
+        <br />
         <h1 className="text-center">Secret Mission Society</h1>
+        <br />
+        <br />
         <p className="text-center">
           The chain must continue.
         </p>
+        <br />
+        <br />
         {token ? (
           <>
+            <Form onFormSubmit={onSubmit} />
+            <br />
+            <br />
             <div className="flex justify-center py-4 ">
               <img
                 src={ollie}
@@ -135,7 +146,6 @@ function App() {
                 alt="Octopus emoji expressing excitement"
               />
             </div>
-            <Form onFormSubmit={onSubmit} />
           </>
         ) : (
           <div className="text-center mt-10">

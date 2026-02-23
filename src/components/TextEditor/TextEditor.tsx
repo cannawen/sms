@@ -19,7 +19,8 @@ function TextEditor({ id }: TextEditorProps) {
     React.useState<TextStyles>(initialStyles);
   const [containerStyles, setContainerStyles] = React.useState<TextStyles>({});
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const defaultText = "<insert your new mission here>";
+  const defaultText = "";
+  const placeholderText = "Take a photo of a cat"
 
 
   useLayoutEffect(() => {
@@ -56,7 +57,7 @@ function TextEditor({ id }: TextEditorProps) {
             className="block font-medium align-left mb-2"
             id={`${id}-text-label`}
           >
-            Text to print:
+            Print a new mission:
           </p>
           <div className={cn("w-[420px] mb-4", containerStyles)}>
             <textarea
@@ -68,6 +69,7 @@ function TextEditor({ id }: TextEditorProps) {
                 textOptionStyles
               )}
               defaultValue={defaultText}
+              placeholder={placeholderText}
               ref={textAreaRef}
             ></textarea>
           </div>
