@@ -25,7 +25,7 @@ function getCookieValue(cookie: string): string {
 }
 
 function App() {
-  let endpoint = "https://sms.recurse.com/text";
+  let endpoint = "https://receipt.recurse.com/text";
 
   if (import.meta.env.DEV) {
     document.cookie = "receipt_csrf=dev_token; path=/";
