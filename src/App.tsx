@@ -24,6 +24,35 @@ function getCookieValue(cookie: string): string {
   );
 }
 
+function wrapTextToLines(text: string, maxLineLength = 30): string {
+  return text
+    .split("\n")
+    .flatMap((line) => {
+      if (!line) {
+        return [""];
+      }
+
+      const wrapped: string[] = [];
+      let remaining = line;
+
+      while (remaining.length > maxLineLength) {
+        const breakIndex = remaining.lastIndexOf(" ", maxLineLength);
+
+        if (breakIndex > 0) {
+          wrapped.push(remaining.slice(0, breakIndex));
+          remaining = remaining.slice(breakIndex + 1);
+        } else {
+          wrapped.push(remaining.slice(0, maxLineLength));
+          remaining = remaining.slice(maxLineLength);
+        }
+      }
+
+      wrapped.push(remaining);
+      return wrapped;
+    })
+    .join("\n");
+}
+
 function App() {
   let endpoint = "https://receipt.recurse.com/text";
 
@@ -45,7 +74,7 @@ function App() {
 
     for (const pair of formData.entries()) {
       textblocks.push({
-        text : pair[1] as string, 
+        text: wrapTextToLines(pair[1] as string),
         coda: 'newline'
       });
     }
