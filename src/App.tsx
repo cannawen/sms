@@ -46,7 +46,8 @@ function App() {
         ================================
 
         Your mission, should you
-        choose to accept:`
+        choose to accept:`,
+        coda: 'newline',
       }
     ];
 
@@ -61,6 +62,7 @@ function App() {
           continue;
         }
         currentOptions = { ...currentOptions, [optionName]: optionValue };
+        currentOptions = {...currentOptions, coda: 'newline'} // TODO: clean this all up
       } else {
         if (Object.keys(currentOptions).length > 0)
           textblocks.push(currentOptions);
