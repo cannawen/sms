@@ -42,39 +42,18 @@ function App() {
       { 
         text: 
         `================================
-        SECRET MISSION SOCIETY
-        ================================
+SECRET MISSION SOCIETY
+================================
 
-        Your mission, should you
-        choose to accept:`,
+Your mission, should you
+choose to accept:`,
         coda: 'newline',
       }
     ];
 
     // group form data by id
     for (const pair of formData.entries()) {
-      const [id, optionName] = pair[0].split("-", 2);
-      let optionValue = pair[1];
-
-      if (currentId === id) {
-        if (optionName === "spacing") {
-          // TODO: remove once spacing is fixed
-          continue;
-        }
-        currentOptions = { ...currentOptions, [optionName]: optionValue };
-        currentOptions = {...currentOptions, coda: 'newline'} // TODO: clean this all up
-      } else {
-        if (Object.keys(currentOptions).length > 0)
-          textblocks.push(currentOptions);
-        if (optionName === "spacing") {
-          // TODO: remove once spacing is fixed
-          currentOptions = {};
-          currentId = id;
-          continue;
-        }
-        currentOptions = { [optionName]: optionValue };
-        currentId = id;
-      }
+      currentOptions = {text : pair[1], coda: 'newline'}
     }
     currentOptions = { ...currentOptions, coda: "newline" };
     textblocks.push(currentOptions);
@@ -83,12 +62,12 @@ function App() {
       {
         text: 
         `Report back on zulip #sms
-        and print the next mission.
+and print the next mission.
 
-        The chain must continue.
+The chain must continue.
 
-        ================================
-        sms.recurse.com`
+================================
+sms.recurse.com`
       }
     )
     // TODO: fix spacing + coda:space, coda:none
