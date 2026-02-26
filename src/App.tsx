@@ -36,45 +36,23 @@ function App() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     var formData = new FormData(e.target);
-    let currentId = "";
-    let currentOptions = {};
     const textblocks: TextReceiptData[] = [
       { 
-        text: 
-        `
-        ================================
-        SECRET MISSION SOCIETY
-        ================================
-
-        Your mission, should you
-        choose to accept:`,
+        text: `================================\nSECRET MISSION SOCIETY\n================================\n\nYour mission, should you\nchoose to accept:\n\n`,
         coda: 'newline',
       }
     ];
 
     for (const pair of formData.entries()) {
-      currentOptions = {
-        text : `
-        ` 
-        + pair[1] + `
-        `, 
+      textblocks.push({
+        text : pair[1] as string, 
         coda: 'newline'
-      }
+      });
     }
-    currentOptions = { ...currentOptions, coda: "newline" };
-    textblocks.push(currentOptions);
 
     textblocks.push(
       {
-        text: 
-        `
-        Report back on zulip #sms
-        and print the next mission.
-
-        The chain must continue.
-
-        ================================
-        sms.recurse.com`
+        text: `\n\nReport back on zulip #sms\nand print the next mission.\n\nThe chain must continue.\n\n================================\nsms.recurse.com`
       }
     )
     // TODO: fix spacing + coda:space, coda:none
