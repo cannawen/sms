@@ -76,6 +76,8 @@ function App() {
         currentId = id;
       }
     }
+    textblocks.push(currentOptions);
+    currentOptions = { ...currentOptions, coda: "newline" };
 
     textblocks.push(
       {
@@ -89,11 +91,6 @@ function App() {
         sms.recurse.com`
       }
     )
-
-    // last text call cuts the paper
-    currentOptions = { ...currentOptions, coda: "cut" };
-    textblocks.push(currentOptions);
-
     // TODO: fix spacing + coda:space, coda:none
     try {
       let response;
