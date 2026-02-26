@@ -41,19 +41,25 @@ function App() {
     const textblocks: TextReceiptData[] = [
       { 
         text: 
-        `================================
-SECRET MISSION SOCIETY
-================================
+        `
+        ================================
+        SECRET MISSION SOCIETY
+        ================================
 
-Your mission, should you
-choose to accept:`,
+        Your mission, should you
+        choose to accept:`,
         coda: 'newline',
       }
     ];
 
-    // group form data by id
     for (const pair of formData.entries()) {
-      currentOptions = {text : pair[1], coda: 'newline'}
+      currentOptions = {
+        text : `
+        ` 
+        + pair[1] + `
+        `, 
+        coda: 'newline'
+      }
     }
     currentOptions = { ...currentOptions, coda: "newline" };
     textblocks.push(currentOptions);
@@ -61,13 +67,14 @@ choose to accept:`,
     textblocks.push(
       {
         text: 
-        `Report back on zulip #sms
-and print the next mission.
+        `
+        Report back on zulip #sms
+        and print the next mission.
 
-The chain must continue.
+        The chain must continue.
 
-================================
-sms.recurse.com`
+        ================================
+        sms.recurse.com`
       }
     )
     // TODO: fix spacing + coda:space, coda:none
