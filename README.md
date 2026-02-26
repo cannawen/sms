@@ -2,6 +2,7 @@
 
 You are at RC Hub picking up your print job, but something catches your eye. What's that, in the receipt printer?
 
+
 ```
         ================================
         SECRET MISSION SOCIETY
@@ -20,3 +21,6 @@ You are at RC Hub picking up your print job, but something catches your eye. Wha
         ================================
         sms.recurse.com
 ```
+Visit [sms.recurse.com](https://sms.recurse.com/) to create a new mission.
+
+The chain must continue.
