@@ -76,8 +76,8 @@ function App() {
         currentId = id;
       }
     }
-    textblocks.push(currentOptions);
     currentOptions = { ...currentOptions, coda: "newline" };
+    textblocks.push(currentOptions);
 
     textblocks.push(
       {
